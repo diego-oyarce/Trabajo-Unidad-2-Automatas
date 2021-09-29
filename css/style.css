@@ -1,0 +1,40 @@
+.repo-github{
+    width: 20%;
+    height: 20%;
+    margin-top: auto;
+    margin-left: 40%;
+}
+.titulo{
+    text-align: center;
+    color: aliceblue;
+}
+.titulo:hover{
+    color:violet;
+}
+.enunciado{
+    color: aliceblue;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.integrantes{
+    color: aliceblue;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.hr{
+    color:aliceblue;
+}
+.link{
+    color: aliceblue;
+    text-decoration: none;
+    margin: 1%;
+    font-size: 170%;
+}
+.link:hover{
+    color: violet;
+}
+.menu{
+    background-color: darkcyan;
+    height: 50px;
+    text-align:justify;
+}
