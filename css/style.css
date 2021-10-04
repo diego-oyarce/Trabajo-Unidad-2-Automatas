@@ -5,9 +5,27 @@
     margin-left: 40%;
 }
 .titulo{
+    font-size: 80px;
     text-align: center;
     color: aliceblue;
 }
+.titulo-a1{
+    font-size: 50px;
+    display: inline-block;
+    text-align: left;
+    color: aliceblue;
+    margin-right: auto;
+    margin-left: 10%;
+}
+.titulo-a2{
+    font-size: 50px;
+    display: inline-block;
+    text-align: right;
+    color: aliceblue;
+    margin-left: 40%;
+}
+.titulo-a1:hover,
+.titulo-a2:hover,
 .titulo:hover{
     color:violet;
 }
@@ -37,4 +55,69 @@
     background-color: darkcyan;
     height: 50px;
     text-align:justify;
+}
+.automatas{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.automata1{
+    background-color:darkseagreen;
+    border-width: 2px;
+    border-style:hidden;
+    border-radius: 6px;
+    margin: 2%;
+    width: 50%;
+    height: 450px;
+    display: inline-block;
+}
+.automata2{
+    background-color:darkgrey;
+    border-width: 2px;
+    border-style:hidden;
+    border-radius: 6px;
+    margin: 2%;
+    width: 50%;
+    height: 450px;
+    display: inline-block;
+}
+.automata-resultados{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.resultados-automata{
+    background-color:darksalmon;
+    border-width: 2px;
+    border-style:hidden;
+    border-radius: 6px;
+    margin: 2%;
+    width: 60%;
+    height: 370px;
+}
+.botones{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.union,
+.concatenacion,
+.interseccion,
+.complemento,
+.afd-equivalente2,
+.afd-equivalente1{
+    margin: 1%;
+    background-color:cornflowerblue;
+    color: cornsilk;
+    border: solid;
+    border-width: 2px;
+    border-radius: 6px;
+}
+.union:hover,
+.concatenacion:hover,
+.interseccion:hover,
+.complemento:hover,
+.afd-equivalente2:hover,
+.afd-equivalente1:hover{
+    background-color: darksalmon;
 }
