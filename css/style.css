@@ -9,20 +9,34 @@
     text-align: center;
     color: aliceblue;
 }
+.titulos{
+    text-align: center;
+}
 .titulo-a1{
-    font-size: 50px;
+    font-size: 300%;
     display: inline-block;
     text-align: left;
     color: aliceblue;
-    margin-right: auto;
-    margin-left: 10%;
+    margin-right: 20%;
 }
 .titulo-a2{
-    font-size: 50px;
+    font-size: 300%;
     display: inline-block;
     text-align: right;
     color: aliceblue;
-    margin-left: 40%;
+    margin-left: 20%;
+}
+.div-alfabeto1{
+    display: inline-block;
+    text-align: left;
+    color: aliceblue;
+    margin-right: 20%;
+}
+.div-alfabeto2{
+    display: inline-block;
+    text-align: left;
+    color: aliceblue;
+    margin-left: 20%;
 }
 .titulo-a1:hover,
 .titulo-a2:hover,
@@ -120,4 +134,90 @@
 .afd-equivalente2:hover,
 .afd-equivalente1:hover{
     background-color: darksalmon;
+}
+#alfabeto-automata2,
+#alfabeto-automata1{
+    border: solid;
+    border-width: 1px;
+    border-radius: 6px;
+}
+.alfabetos{
+    text-align: center;
+}
+.alfabeto2,
+.alfabeto1{
+    color: floralwhite;
+    background-color: darkorchid;
+    border-radius: 5px;
+}
+#state-popUp{
+    color: floralwhite;
+    display:none;
+    position:absolute;
+    top:60%;
+    left:8%;
+    z-index:2;
+    width:500px;
+    height:130px;
+    background-color:darkslateblue;
+    border-style:solid;
+    border-radius: 6px;
+    border-width:1px;
+    padding:10px;
+    text-align: center;
+}
+#state-popUp2{
+    color: floralwhite;
+    display:none;
+    position:absolute;
+    top:60%;
+    margin-left: 40%;
+    z-index:2;
+    width:500px;
+    height:130px;
+    background-color:darkslateblue;
+    border-style:solid;
+    border-radius: 6px;
+    border-width:1px;
+    padding:10px;
+    text-align: center;
+}
+#transition-popUp2,
+#transition-popUp{
+    color: floralwhite;
+    display:none;
+    position:absolute;
+    top: 60%;
+    left:8%;
+    z-index:2;
+    width:280px;
+    height:120px;
+    background-color:darkslateblue;
+    border-style:solid;
+    border-radius: 6px;
+    border-width:1px;
+    padding:10px;
+    text-align: center;
+}
+#saveButton-state2,
+#cancelButton-state2,
+#saveButton-state,
+#cancelButton-state{
+    border-radius: 6px;
+    border: solid;
+    border-width: 1px;
+}
+#saveButton-state2:hover,
+#cancelButton-state2:hover,
+#saveButton-state:hover,
+#cancelButton-state:hover{
+    background-color: darkgoldenrod;
+}
+#state-id2,
+#state-final2,
+#state-id,
+#state-final{
+    border-radius: 6px;
+    border: solid;
+    border-width: 1px;
 }
