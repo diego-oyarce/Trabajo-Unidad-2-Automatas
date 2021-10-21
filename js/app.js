@@ -28,6 +28,20 @@ var data2 = {
   nodes: nodes2,
   edges: edges2
 };
+//VARIABLES PARA AUTOMATA 3
+var nodes3 = new vis.DataSet([]);
+var edges3 = new vis.DataSet([]);
+var arrayEventos3 = [];
+var arrayIdEstados3 = [];
+var containerResultados = document.getElementById('resultados-automata');
+var dataResultados = {
+  nodes: nodes3,
+  edges: edges3
+};
+
+//VARIABLE PARA SIMPLIFICAR AFD
+var matrizSimp = new Array();
+
 
 //LOCALES PARA TODOS LOS AUTOMATAS
 var locales = {
@@ -178,6 +192,53 @@ var options2 = {
       }, 
       editEdge:false,   
       deleteNode:true,
+      deleteEdge:false
+  }
+};
+//OPTIONS AUTOMATA-RESULTADOS
+var optionsResultados = {
+  autoResize:true,
+  height:'100%',
+  width:'100%',
+  locale: 'en',
+  locales: locales,
+  clickToUse: true,
+  configure:{
+      enabled:false,
+      filter: 'nodes,edges',
+      showButton:true
+  },
+  edges:{
+      length:180,
+      arrows: {
+        to: {
+          enabled: true,
+          scaleFactor: 1,
+          type: "arrow"
+        },
+        middle: {
+          enabled: true,
+          scaleFactor: 1,
+          type: "image"
+        },
+        from: {
+          enabled: false,
+          scaleFactor: 1,
+          type: "arrow"
+        }
+      },
+  },
+  interaction:{
+      dragNodes:true,
+      dragView:true,
+      hover:true,
+      multiselect:true,
+      navigationButtons:false
+  },
+  manipulation:{
+      enabled:false,
+      initiallyActive: true,    
+      deleteNode:false,
       deleteEdge:false
   }
 };
@@ -887,3 +948,4 @@ function afdSimplicado(){
 function nada(){
   alert("Esta función aún no esta lista");
 }
+
