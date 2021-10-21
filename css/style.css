@@ -9,6 +9,9 @@
     text-align: center;
     color: aliceblue;
 }
+.ul{
+    color: aliceblue;
+}
 .titulos{
     text-align: center;
 }
@@ -220,4 +223,7 @@
     border-radius: 6px;
     border: solid;
     border-width: 1px;
+}
+#p{
+    color: white;
 }
