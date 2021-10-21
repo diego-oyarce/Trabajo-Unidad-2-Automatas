@@ -13,6 +13,14 @@
         <a href="index.html" target="_blank" class="link">Inicio</a>
     </div>
     <h1 class="titulo">Autómatas</h1>
+    <p><ul>
+        <li>Debe ingresar obligatoriamente el alfabeto antes de ingresar cualquier automata.</li>
+        <li>Al ingresar un AFND debe incluirse en el alfabeto el simbolo de transición vacia.</li>
+        <li>Por defecto el primer estado ingresado se considera <b>estado inicial</b>.</>
+        <li>Al simplificar un afd de cualquiera de los dos automatas el otro debe estar vacio.</li>
+        <li>Para ingresar una transición vacía hagalo usando el simbolo de interrogación (?).</li>
+        <li>Al ingresar los elementos de un alfabeto hagalo separando cada elemento por un punto y coma (;). No utilice espacios en blanco.</li>
+    </ul></p>
     <div class="titulos">
         <h2 class="titulo-a1">Autómata 1</h2>
         <h2 class="titulo-a2">Autómata 2</h2>
@@ -34,7 +42,7 @@
         <div class="automata2" id="automataDiv2"></div>
     </div>
     <div class="botones">
-        <button onclick="nada()" class="afd-equivalente1">AFD Equivalente (1)</button>
+        <button onclick="afdSimplicado()" class="afd-equivalente1">AFD Equivalente (1)</button>
         <button onclick="nada()" class="afd-equivalente2">AFD Equivalente (2)</button>
         <button onclick="nada()" class="complemento">Complemento</button>
         <button onclick="nada()" class="union">Unión</button>
