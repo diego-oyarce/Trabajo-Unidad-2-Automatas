@@ -33,7 +33,7 @@ var nodes3 = new vis.DataSet([]);
 var edges3 = new vis.DataSet([]);
 var arrayEventos3 = [];
 var arrayIdEstados3 = [];
-var containerResultados = document.getElementById('resultados-automata');
+var containerResultados = document.getElementById('resultado');
 var dataResultados = {
   nodes: nodes3,
   edges: edges3
@@ -171,23 +171,23 @@ var options2 = {
       enabled:true,
       initiallyActive: true,
       addNode: function(data2, callback){
-          var span = document.getElementById('operation-state');
-          var nodeSaveButton = document.getElementById('saveButton-state');
-          var nodeCancelButton = document.getElementById('cancelButton-state');
-          var node_div = document.getElementById('state-popUp');
+          var span = document.getElementById('operation-state2');
+          var nodeSaveButton = document.getElementById('saveButton-state2');
+          var nodeCancelButton = document.getElementById('cancelButton-state2');
+          var node_div = document.getElementById('state-popUp2');
           span.innerHTML = "Añadir Estado";
-          nodeSaveButton.onclick = nodeSaveData.bind(this,data2,callback);
-          nodeCancelButton.onclick = nodeClearPopUp.bind();
+          nodeSaveButton.onclick = nodeSaveData2.bind(this,data2,callback);
+          nodeCancelButton.onclick = nodeClearPopUp2.bind();
           node_div.style.display = 'block';
       },
       addEdge: function(data2, callback){
-          var edgeSpan = document.getElementById('operation-transition');
-          var edgeSaveButton = document.getElementById('saveButton-transition');
-          var edgeCancelButton = document.getElementById('cancelButton-transition');
-          var edge_div = document.getElementById('transition-popUp');
+          var edgeSpan = document.getElementById('operation-transition2');
+          var edgeSaveButton = document.getElementById('saveButton-transition2');
+          var edgeCancelButton = document.getElementById('cancelButton-transition2');
+          var edge_div = document.getElementById('transition-popUp2');
           edgeSpan.innerHTML = "Añadir Transición";
-          edgeSaveButton.onclick = edgeSaveData.bind(this,data2,callback);
-          edgeCancelButton.onclick = edgeClearPopUp.bind();
+          edgeSaveButton.onclick = edgeSaveData2.bind(this,data2,callback);
+          edgeCancelButton.onclick = edgeClearPopUp2.bind();
           edge_div.style.display = 'block';
       }, 
       editEdge:false,   
@@ -247,6 +247,8 @@ var optionsResultados = {
 var network = new vis.Network(container, data, options);
 //AUTOMATA 2
 var network2 = new vis.Network(container2, data2, options2);
+//AUTOMATA RESULTADOS
+var network3 = new vis.Network(containerResultados, dataResultados, optionsResultados);
 
 //GUARDAR ALFABETO AUTOMATA 1
 function guardarAlfabeto(){
