@@ -377,8 +377,8 @@ function nodeSaveData2(data2,callback) {
           arrayEstadosFinales2.push(0);
         }
       }
-      arrayIdEstados2.push(data2.id);
-      arrayLabelEstados2.push(data2.label);
+      arrayIdEstados2.push(nodes2.length);
+      arrayLabelEstados2.push(data2.id);
       nodeClearPopUp2();
       callback(data);
     }
@@ -818,6 +818,17 @@ function transformarAfnd2(){
 //########################################################################################################
 //########################################################################################################
 
+
+function mostrarMatriz(){
+  for(let i=0;i<arrayEventos2.length;i++){
+    document.write("from: "+ arrayEventos2[i].from + " to: "+arrayEventos2[i].to+ " label: "+arrayEventos2[i].label+ "<br/>");
+  }
+}
+function mostrarMatriz2(){
+  for(let i=0;i<arrayEventos.length;i++){
+    document.write("from: "+ arrayEventos[i].from + " to: "+arrayEventos[i].to+ " label: "+arrayEventos[i].label+ "<br/>");
+  }
+}
 function equivalencia(estado1,estado2){
   //Para sacar posibles estados compatibles dejarlos en 1 y los no compatibles en 0
    if(arrayEstadosFinales[estado1]==0&&arrayEstadosFinales[estado2]==0){
@@ -925,6 +936,7 @@ function afdSimplicado(){
   for(let i=0;i<arrayEventos.length;i++){
     arrayEventos3.push({from:0, to:0, evento:0});
   }
+  mostrarMatriz2();
   for(let i=0;i<arrayIdEstados.length;i++){
     for(let j=0;j<arrayIdEstados.length;j++){
        if(i>j){
@@ -946,6 +958,141 @@ function afdSimplicado(){
   }
   var network3 = new vis.Network(containerResultados, dataResultados, optionsResultados);
 }
+//########################################################################################################
+//########################################################################################################
+function equivalencia2(estado1,estado2){
+  //Para sacar posibles estados compatibles dejarlos en 1 y los no compatibles en 0
+   if(arrayEstadosFinales2[estado1]==0&&arrayEstadosFinales2[estado2]==0){
+    return 1;
+   } 
+   else if(arrayEstadosFinales2[estado1]==1&&arrayEstadosFinales2[estado2]==1){   
+    return 1;
+   }
+   else{
+      return 0;
+   } 
+}
+
+function compatible2(estado1,estado2){
+    arrayEstado1= new Array ();
+    arrayEstado2= new Array();
+    for(let i=0; i<arrayEventos2.length;i++){
+      if(arrayEventos2[i].from == estado1 ){
+        arrayEstado1.push({from:arrayEventos2[i].from, to:arrayEventos2[i].to, evento:arrayEventos2[i].evento});
+      }
+      else if(arrayEventos2[i].from == estado2){
+        arrayEstado2.push({from:arrayEventos2[i].from, to:arrayEventos2[i].to, evento:arrayEventos2[i].evento});
+      }
+      else{}
+    }
+    
+    for(let i=0;i<arrayEstado1.length;i++){
+      for(let j=0;j<arrayEstado2.length;j++){
+        if(arrayEstado1[i].evento==arrayEstado2[j].evento)
+        {
+          matrizSimp[estado1][estado2]=equivalencia2(arrayEstado1[i].to,arrayEstado2[j].to);
+        }
+      }
+    }
+}
+
+function afdEquivalente2(){
+  for(let i=0;i<arrayIdEstados2.length;i++)  {
+    matrizSimp[i] = new Array();
+  }
+  //PARA LOS CASOS QUE LOS DOS SON FINALES O NO FINALES
+  for(let i=1;i<arrayIdEstados2.length;i++){
+    for(let j=0;j<arrayIdEstados2.length;j++){
+       if(i>j){
+          matrizSimp[i][j] = equivalencia2(i,j);     
+       }
+    }
+  }
+  //PARA LOS POSIBLES CASOS 
+  for(let i=0;i<arrayIdEstados2.length;i++){
+    for(let j=0;j<arrayIdEstados2.length;j++){
+       if(i>j){
+          if(matrizSimp[i][j]==1){
+              compatible2(i,j); 
+          }       
+       }
+    }
+  }
+}
+
+
+function eliminar2(estado1,estado2){
+  //BORRAR UN NODO
+  for(let i=0; i<arrayIdEstados2.length;i++)  {
+    if(arrayIdEstados3[i]!=-1){
+      if(arrayIdEstados2[i]!=estado1){
+        arrayIdEstados3[i] = arrayIdEstados2[i];
+      }
+      else{
+        arrayIdEstados3[i]=-1;
+      }
+    }
+  }
+
+  for(let i=0;i<arrayEventos2.length;i++){
+    if(arrayEventos3[i].from!=-1){
+      if(arrayEventos2[i].from==estado1){
+        arrayEventos3[i].from=-1;
+        arrayEventos3[i].to=-1;
+        arrayEventos3[i].evento=-1;
+        //ELIMINAR 
+      }
+      else if(arrayEventos2[i].to==estado1){
+        arrayEventos3[i].from = arrayEventos2[i].from;
+        arrayEventos3[i].to = estado2;
+        arrayEventos3[i].evento = arrayEventos2[i].evento;
+        arrayEventos2[i].to= estado2;
+        //MODIFICAR
+      }
+      else{
+        arrayEventos3[i].from=arrayEventos2[i].from;
+        arrayEventos3[i].to=arrayEventos2[i].to;
+        arrayEventos3[i].evento=arrayEventos2[i].evento;
+        //MANTENER
+      }
+    }
+  }
+}
+
+
+function afdSimplicado2(){
+  afdEquivalente2();
+  //ELIMINAR UN ESTADO Y SUS SALIDAS Y LAS ENTRADAS CONECTARLAS AL OTRO ESTADO
+  for(let i=0;i<arrayIdEstados2.length;i++){
+        arrayIdEstados3[i]=0;
+  }
+  for(let i=0;i<arrayEventos2.length;i++){
+    arrayEventos3.push({from:0, to:0, evento:0});
+  }
+  mostrarMatriz();
+  for(let i=0;i<arrayIdEstados2.length;i++){
+    for(let j=0;j<arrayIdEstados2.length;j++){
+       if(i>j){
+          if(matrizSimp[i][j]==1){
+            eliminar2(i,j);
+          }       
+       }
+    }
+  }
+  
+  for(let i=0;i<arrayIdEstados3.length;i++){
+    if(arrayIdEstados3[i]!=-1){
+      nodes3.add({id:i, label: arrayLabelEstados2[i]}); //Guardando todos los nodos
+    }
+  }
+  for(let i=0;i<arrayEventos3.length;i++){
+    if(arrayEventos3[i].from!=-1 ){
+      edges3.add({from: arrayEventos3[i].from, to:arrayEventos3[i].to, label:arrayEventos3[i].evento});
+    }
+  }
+  var network3 = new vis.Network(containerResultados, dataResultados, optionsResultados);
+}
+
 
 function nada(){
   alert("Esta función aún no esta lista");
