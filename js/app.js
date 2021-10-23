@@ -33,6 +33,7 @@ var nodes3 = new vis.DataSet([]);
 var edges3 = new vis.DataSet([]);
 var arrayEventos3 = [];
 var arrayIdEstados3 = [];
+var arrayEstadosFinales3 = [];
 var containerResultados = document.getElementById('resultado');
 var dataResultados = {
   nodes: nodes3,
@@ -1085,6 +1086,70 @@ function afdSimplicado2(){
     if(arrayEventos3[i].from!=-1 ){
       edges3.add({from: arrayEventos3[i].from, to:arrayEventos3[i].to, label:arrayEventos3[i].evento});
     }
+  }
+  var network3 = new vis.Network(containerResultados, dataResultados, optionsResultados);
+}
+function complemento1(){
+  for(let i=0;i<arrayEstadosFinales.length;i++){
+    if(arrayEstadosFinales[i]==0){
+      arrayEstadosFinales3[i]=1;
+    }
+    else{
+      arrayEstadosFinales3[i]=0;
+    }
+  }
+  for(let i=0;i<arrayIdEstados.length;i++){
+    if(i==0){
+      if(arrayEstadosFinales[i]==0){
+        nodes3.add({id:i,label:arrayLabelEstados[i]+ " :Estado final y inicial"});
+      }
+      else{
+        nodes3.add({id:i,label:arrayLabelEstados[i]+ " :Estado inicial"});
+      }
+    }
+    else{
+      if(arrayEstadosFinales[i]==0){
+        nodes3.add({id:i,label:arrayLabelEstados[i]+ " :Estado final"});
+      }
+      else{
+        nodes3.add({id:i,label:arrayLabelEstados[i]});
+      }
+    }
+  }
+  for(let i=0;i<arrayEventos.length;i++){
+    edges3.add({from: arrayEventos[i].from, to:arrayEventos[i].to, label:arrayEventos[i].evento});
+  }
+  var network3 = new vis.Network(containerResultados, dataResultados, optionsResultados);
+}
+function complemento2(){
+  for(let i=0;i<arrayEstadosFinales2.length;i++){
+    if(arrayEstadosFinales2[i]==0){
+      arrayEstadosFinales3[i]=1;
+    }
+    else{
+      arrayEstadosFinales3[i]=0;
+    }
+  }
+  for(let i=0;i<arrayIdEstados2.length;i++){
+    if(i==0){
+      if(arrayEstadosFinales2[i]==0){
+        nodes3.add({id:i,label:arrayLabelEstados2[i]+ " :Estado final y inicial"});
+      }
+      else{
+        nodes3.add({id:i,label:arrayLabelEstados2[i]+ " :Estado inicial"});
+      }
+    }
+    else{
+      if(arrayEstadosFinales2[i]==0){
+        nodes3.add({id:i,label:arrayLabelEstados2[i]+ " :Estado final"});
+      }
+      else{
+        nodes3.add({id:i,label:arrayLabelEstados2[i]});
+      }
+    }
+  }
+  for(let i=0;i<arrayEventos2.length;i++){
+    edges3.add({from: arrayEventos2[i].from, to:arrayEventos2[i].to, label:arrayEventos2[i].evento});
   }
   var network3 = new vis.Network(containerResultados, dataResultados, optionsResultados);
 }
