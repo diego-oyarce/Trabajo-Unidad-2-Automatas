@@ -946,7 +946,22 @@ function afdSimplicado(){
   }
   for(let i=0;i<arrayIdEstados3.length;i++){
     if(arrayIdEstados3[i]!=-1){
-      nodes3.add({id:i, label: arrayLabelEstados[i]}); //Guardando todos los nodos
+      if(i==0){
+        if(arrayEstadosFinales[i]==1){
+          nodes3.add({id:i, label: arrayLabelEstados[i]+": Estado Final y inicial"});
+        }
+        else{
+          nodes3.add({id:i, label: arrayLabelEstados[i]+": Estado inicial"}); //Guardando todos los nodos
+        }
+      }
+      else{
+        if(arrayEstadosFinales2[i]==1){
+          nodes3.add({id:i, label: arrayLabelEstados[i]+": Estado Final"});
+        }
+        else{
+          nodes3.add({id:i, label: arrayLabelEstados[i]}); //Guardando todos los nodos
+        }
+      }
     }
   }
   for(let i=0;i<arrayEventos3.length;i++){
@@ -1079,7 +1094,22 @@ function afdSimplicado2(){
  
   for(let i=0;i<arrayIdEstados3.length;i++){
     if(arrayIdEstados3[i]!=-1){
-      nodes3.add({id:i, label: arrayLabelEstados2[i]}); //Guardando todos los nodos
+      if(i==0){
+        if(arrayEstadosFinales2[i]==1){
+          nodes3.add({id:i, label: arrayLabelEstados2[i]+": Estado Final y inicial"});
+        }
+        else{
+          nodes3.add({id:i, label: arrayLabelEstados2[i]+": Estado inicial"}); //Guardando todos los nodos
+        }
+      }
+      else{
+        if(arrayEstadosFinales2[i]==1){
+          nodes3.add({id:i, label: arrayLabelEstados2[i]+": Estado Final"});
+        }
+        else{
+          nodes3.add({id:i, label: arrayLabelEstados2[i]}); //Guardando todos los nodos
+        }
+      }
     }
   }
   for(let i=0;i<arrayEventos3.length;i++){
@@ -1101,15 +1131,15 @@ function complemento1(){
   for(let i=0;i<arrayIdEstados.length;i++){
     if(i==0){
       if(arrayEstadosFinales[i]==0){
-        nodes3.add({id:i,label:arrayLabelEstados[i]+ " :Estado final y inicial"});
+        nodes3.add({id:i,label:arrayLabelEstados[i]+ ": Estado final y inicial"});
       }
       else{
-        nodes3.add({id:i,label:arrayLabelEstados[i]+ " :Estado inicial"});
+        nodes3.add({id:i,label:arrayLabelEstados[i]+ ": Estado inicial"});
       }
     }
     else{
       if(arrayEstadosFinales[i]==0){
-        nodes3.add({id:i,label:arrayLabelEstados[i]+ " :Estado final"});
+        nodes3.add({id:i,label:arrayLabelEstados[i]+ ": Estado final"});
       }
       else{
         nodes3.add({id:i,label:arrayLabelEstados[i]});
@@ -1133,15 +1163,15 @@ function complemento2(){
   for(let i=0;i<arrayIdEstados2.length;i++){
     if(i==0){
       if(arrayEstadosFinales2[i]==0){
-        nodes3.add({id:i,label:arrayLabelEstados2[i]+ " :Estado final y inicial"});
+        nodes3.add({id:i,label:arrayLabelEstados2[i]+ ": Estado final y inicial"});
       }
       else{
-        nodes3.add({id:i,label:arrayLabelEstados2[i]+ " :Estado inicial"});
+        nodes3.add({id:i,label:arrayLabelEstados2[i]+ ": Estado inicial"});
       }
     }
     else{
       if(arrayEstadosFinales2[i]==0){
-        nodes3.add({id:i,label:arrayLabelEstados2[i]+ " :Estado final"});
+        nodes3.add({id:i,label:arrayLabelEstados2[i]+ ": Estado final"});
       }
       else{
         nodes3.add({id:i,label:arrayLabelEstados2[i]});
