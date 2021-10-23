@@ -377,7 +377,7 @@ function nodeSaveData2(data2,callback) {
           arrayEstadosFinales2.push(0);
         }
       }
-      arrayIdEstados2.push(nodes2.length);
+      arrayIdEstados2.push(nodes2.length-1);
       arrayLabelEstados2.push(data2.id);
       nodeClearPopUp2();
       callback(data);
@@ -823,10 +823,8 @@ function mostrarMatriz(){
   for(let i=0;i<arrayEventos2.length;i++){
     document.write("from: "+ arrayEventos2[i].from + " to: "+arrayEventos2[i].to+ " label: "+arrayEventos2[i].label+ "<br/>");
   }
-}
-function mostrarMatriz2(){
-  for(let i=0;i<arrayEventos.length;i++){
-    document.write("from: "+ arrayEventos[i].from + " to: "+arrayEventos[i].to+ " label: "+arrayEventos[i].label+ "<br/>");
+  for(let i=0; i<arrayIdEstados2.length;i++) {
+    document.write("\n"+arrayIdEstados2[i]);
   }
 }
 function equivalencia(estado1,estado2){
@@ -936,7 +934,6 @@ function afdSimplicado(){
   for(let i=0;i<arrayEventos.length;i++){
     arrayEventos3.push({from:0, to:0, evento:0});
   }
-  mostrarMatriz2();
   for(let i=0;i<arrayIdEstados.length;i++){
     for(let j=0;j<arrayIdEstados.length;j++){
        if(i>j){
@@ -1033,7 +1030,7 @@ function eliminar2(estado1,estado2){
       }
     }
   }
-
+  
   for(let i=0;i<arrayEventos2.length;i++){
     if(arrayEventos3[i].from!=-1){
       if(arrayEventos2[i].from==estado1){
@@ -1069,7 +1066,6 @@ function afdSimplicado2(){
   for(let i=0;i<arrayEventos2.length;i++){
     arrayEventos3.push({from:0, to:0, evento:0});
   }
-  mostrarMatriz();
   for(let i=0;i<arrayIdEstados2.length;i++){
     for(let j=0;j<arrayIdEstados2.length;j++){
        if(i>j){
@@ -1079,7 +1075,7 @@ function afdSimplicado2(){
        }
     }
   }
-  
+ 
   for(let i=0;i<arrayIdEstados3.length;i++){
     if(arrayIdEstados3[i]!=-1){
       nodes3.add({id:i, label: arrayLabelEstados2[i]}); //Guardando todos los nodos
