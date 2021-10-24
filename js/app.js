@@ -125,7 +125,7 @@ var options = {
         }, 
         editEdge:false,   
         deleteNode:true,
-        deleteEdge:false
+        deleteEdge:true
     }
 };
 //OPTIONS PARA AUTOMATA 2
@@ -193,7 +193,7 @@ var options2 = {
       }, 
       editEdge:false,   
       deleteNode:true,
-      deleteEdge:false
+      deleteEdge:true
   }
 };
 //OPTIONS AUTOMATA-RESULTADOS
@@ -818,15 +818,20 @@ function transformarAfnd2(){
 }
 //########################################################################################################
 //########################################################################################################
-
-
-function mostrarMatriz(){
-  for(let i=0;i<arrayEventos2.length;i++){
-    document.write("from: "+ arrayEventos2[i].from + " to: "+arrayEventos2[i].to+ " label: "+arrayEventos2[i].label+ "<br/>");
-  }
-  for(let i=0; i<arrayIdEstados2.length;i++) {
-    document.write("\n"+arrayIdEstados2[i]);
-  }
+function reinicio(){
+  
+  nodes3 = new vis.DataSet([]);
+  edges3 = new vis.DataSet([]);
+  arrayEventos3 = [];
+  arrayIdEstados3 = [];
+  varrayEstadosFinales3 = [];
+  dataResultados = {
+    nodes: nodes3,
+    edges: edges3
+  };
+}
+function reinicioMatriz(){
+  matrizSimp = [];
 }
 function equivalencia(estado1,estado2){
   //Para sacar posibles estados compatibles dejarlos en 1 y los no compatibles en 0
@@ -955,7 +960,7 @@ function afdSimplicado(){
         }
       }
       else{
-        if(arrayEstadosFinales2[i]==1){
+        if(arrayEstadosFinales[i]==1){
           nodes3.add({id:i, label: arrayLabelEstados[i]+": Estado Final"});
         }
         else{
@@ -970,6 +975,9 @@ function afdSimplicado(){
     }
   }
   var network3 = new vis.Network(containerResultados, dataResultados, optionsResultados);
+  reinicio();
+  reinicioMatriz();
+
 }
 //########################################################################################################
 //########################################################################################################
@@ -1118,7 +1126,10 @@ function afdSimplicado2(){
     }
   }
   var network3 = new vis.Network(containerResultados, dataResultados, optionsResultados);
+  reinicio();
+  reinicioMatriz();
 }
+//################################################################################################################
 function complemento1(){
   for(let i=0;i<arrayEstadosFinales.length;i++){
     if(arrayEstadosFinales[i]==0){
@@ -1150,6 +1161,7 @@ function complemento1(){
     edges3.add({from: arrayEventos[i].from, to:arrayEventos[i].to, label:arrayEventos[i].evento});
   }
   var network3 = new vis.Network(containerResultados, dataResultados, optionsResultados);
+  reinicio();
 }
 function complemento2(){
   for(let i=0;i<arrayEstadosFinales2.length;i++){
@@ -1182,10 +1194,5 @@ function complemento2(){
     edges3.add({from: arrayEventos2[i].from, to:arrayEventos2[i].to, label:arrayEventos2[i].evento});
   }
   var network3 = new vis.Network(containerResultados, dataResultados, optionsResultados);
+  reinicio();
 }
-
-
-function nada(){
-  alert("Esta función aún no esta lista");
-}
-
