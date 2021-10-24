@@ -5,9 +5,10 @@
     margin-left: 40%;
 }
 .titulo{
-    font-size: 80px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 60px;
     text-align: center;
-    color: aliceblue;
+    color: black;
 }
 .ul{
     color: aliceblue;
@@ -44,15 +45,20 @@
 .titulo-a1:hover,
 .titulo-a2:hover,
 .titulo:hover{
-    color:violet;
+    color:rgb(25, 2, 65);
 }
 .enunciado{
-    color: aliceblue;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(0, 0, 0);
     margin-left: 2%;
     margin-top: 2%;
 }
 .integrantes{
-    color: aliceblue;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(0, 0, 0);
+    text-align:justify;
     margin-left: 2%;
     margin-right: 2%;
 }
@@ -60,17 +66,18 @@
     color:aliceblue;
 }
 .link{
+    font-family:'Times New Roman', Times, serif;
     color: aliceblue;
     text-decoration: none;
     margin: 1%;
     font-size: 170%;
 }
 .link:hover{
-    color: violet;
+    color: rgb(37, 3, 37);
 }
 .menu{
-    background-color: darkcyan;
-    height: 50px;
+    background-color: rgb(4, 39, 59);
+    height: 40px;
     text-align:justify;
 }
 .automatas{
